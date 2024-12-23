@@ -24,16 +24,22 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-   <!-- Jumbotron -->
-   <div class="container-fluid banner">
-        <div class="container text-center">
-            <div class="jumbotron">
+    <!-- Jumbotron -->
+    <div class="container-fluid banner">
+        <div class="jumbotron">
+            <!-- Logout Form -->
+            <form action="" method="POST" class="position-absolute" style="top: 10px; right: 10px;">
+                <button type="submit" name="logout" class="btn btn-link p-0">
+                    <img src="img/logout.png" alt="Logout" width="30" height="30">
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="text-center">
             <img src="img/logotvri.png" class="navbar-brand-img" alt="main_logo" style="height: 125px; margin-bottom: 10px;">
             <h1> Watermark Digital TVRI Sumatera Selatan</h1>
             <p> Jl. Balap Sepeda Jl.POM IX, Lorok Pakjo. Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan 30137. </p>
             <hr style="border: 1px solid black; margin-top: 20px; margin-bottom: 20px;">
-            </div>
-        </div>
     </div>
     <!-- Akhir Jumbotron -->
 
@@ -162,9 +168,10 @@
                 const link = document.createElement('a');
                 link.href = url;
 
-                // Gunakan nama file asli
-                const file = document.getElementById('upload-pdf').files[0];
-                link.download = file.name;
+                // Ambil nama file asli dan tambahkan "_watermarked"
+                const originalName = fileInput.name;
+                const fileName = originalName.replace(/\.pdf$/, '') + '_watermarked.pdf';
+                link.download = fileName;
 
                 // Klik link untuk memulai unduhan
                 link.click();
@@ -178,17 +185,8 @@
         });
     </script>
 
-    <div class="container text-center mt-5">
-        <!-- Logout -->
-        <form action="watermark.php" method="POST" class="mb-4">
-            <button type="submit" name="logout" class="btn btn-link p-0">
-                <img src="img/power-off.png" alt="Logout">
-            </button>
-        </form>
-    </div>
-
     <footer>
-        <div class="container-fluid text-center pt-2 pb-2 fw-bold bg-primary">
+        <div class="container-fluid text-center pt-2 pb-2 fw-bold bg-primary fixed-bottom">
             &copy; 2024 By Nayra Alya Denita - Universitas MDP
         </div>
     </footer>

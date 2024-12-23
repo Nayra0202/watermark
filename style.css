@@ -1,38 +1,81 @@
-*{
+/* Reset default */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-body{
-    margin: 5%;
+body {
+    margin: 0;
     padding: 0;
     height: 100vh;
+    background-color: #f4f4f9; /* Warna latar belakang */
     overflow: hidden;
 }
 
+/* Jumbotron */
 .jumbotron {
-    font-size: 15px;
-    padding: 10px;
-    text-align: center;
+    background: rgb(112, 96, 156); /* Warna latar belakang */
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.main {
-    font-size: 15px;
-    padding: 15px;
     text-align: center;
-    color: rgb(248, 248, 248);
+    font-size: 16px;
+    padding: 0;
+    border-radius: 10px;
+    margin: 0; /* Jarak luar */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative; /* Untuk posisi tombol Back */
 }
 
-.picture {
-    padding: 0px;
-    width: 170px; /* Atur lebar sesuai kebutuhan */
-    height: 110px; /* Atur tinggi sesuai kebutuhan */  
+/* Logo */
+.jumbotron .picture {
+    width: 170px;
+    height: auto;
+    margin-bottom: 10px;
 }
 
-.center{
+/* Tombol Back */
+.jumbotron .btn {
+    position: absolute;
+    top: 10px; /* Jarak dari atas */
+    left: 0; /* Jarak dari kiri */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.jumbotron .btn img {
+    width: 40px; /* Ukuran ikon */
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.jumbotron .btn img:hover {
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+/* Title */
+.jumbotron h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+
+.jumbotron p {
+    font-size: 16px;
+    color: #e8e8e8; /* Warna teks */
+    margin: 10px 0;
+}
+
+.jumbotron hr {
+    border: 1px solid white;
+    margin: 20px 0;
+}
+
+/* Form Container */
+.center {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -41,36 +84,41 @@ body{
     background: rgb(112, 96, 156);
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
 }
 
-.center h1{
+/* Form Title */
+.center h1 {
     text-align: center;
     padding: 20px 0;
-    border-bottom: none;
+    font-size: 22px;
+    color: white;
 }
 
-.center form{
-    padding: 0 40px;
+/* Form Styling */
+.center form {
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
-form .txt_field{
+form .txt_field {
     position: relative;
     border-bottom: 2px solid white;
     margin: 30px 0;
 }
 
-.txt_field input{
+.txt_field input {
     width: 100%;
-    padding: 0 5px;
+    padding: 5px 0;
     height: 40px;
     font-size: 16px;
     border: none;
     background: none;
     outline: none;
+    color: white;
 }
 
-.txt_field label{
+.txt_field label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -78,80 +126,92 @@ form .txt_field{
     transform: translateY(-50%);
     font-size: 16px;
     pointer-events: none;
-    transition: .5s;
-}
-
-.txt_field span::before{
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: white;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .txt_field input:focus ~ label,
-.txt_field input:valid ~ label{
+.txt_field input:valid ~ label {
     top: -5px;
     color: white;
 }
 
-.txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before{
-    width: 100%;
-}
-
-.pass{
+.pass {
     margin: -5px 0 20px 5px;
     color: white;
     cursor: pointer;
 }
 
-.pass:hover{
+.pass:hover {
     text-decoration: underline;
 }
 
-input[type="submit"]{
-    width: 100px;
-    height: 50px;
-    border: 1px solid;
+/* Submit Button */
+input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    border: 1px solid white;
     background: white;
     border-radius: 25px;
-    font-size: 18px;
-    color: white;
+    font-size: 16px;
+    color: rgb(112, 96, 156);
     font-weight: 700;
     cursor: pointer;
     outline: none;
+    transition: all 0.3s ease;
 }
 
-input[type="submit"]:hover{
-    border-color: #131313;
-    transition: .5s;
+input[type="submit"]:hover {
+    background: rgb(112, 96, 156);
+    color: white;
+    border-color: white;
 }
 
-.signup_link{
-    margin: 30px 0;
+/* Signup Link */
+.signup_link {
+    margin: 20px 0;
     text-align: center;
     font-size: 16px;
     color: white;
 }
 
-.signup_link a{
+.signup_link a {
     color: white;
+    text-decoration: underline;
+}
+
+.signup_link a:hover {
+    color: #ddd;
     text-decoration: none;
 }
 
-.signup_link a:hover{
-    text-decoration: none;
-}
-
+/* Link Defaults */
 a {
-    text-decoration: none; /* Hilangkan garis bawah */
-    color: black; /* Ganti warna teks menjadi hitam */
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: gray; /* Opsional: Ubah warna saat hover */
+    color: gray;
 }
+
+.logout {
+    position: absolute;
+    top: 10px; /* Atur jarak dari atas sesuai kebutuhan */
+    right: 10px; /* Atur jarak dari kanan sesuai kebutuhan */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Memastikan wrapper setinggi viewport */
+}
+.content {
+    flex: 1; /* Membuat konten mengisi ruang yang tersisa */
+}
+

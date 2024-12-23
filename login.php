@@ -6,7 +6,7 @@
     //jika pengguna sdh login
     if(isset($_SESSION['is_login'])){
         if ($_SESSION['role'] == 'admin') {
-            header("location: riwayat.php"); //ke halaman watermark stlh login
+            header("location: dashboard_admin.php"); //ke halaman watermark stlh login
         }else{
             header("location: watermark.php"); //ke halaman watermark stlh login
         }
@@ -30,7 +30,7 @@
 
             //Pengalihan berdasarkan peran
             if ($data["role"] == 'admin') {
-                header("location: riwayat.php"); //ke halaman admin
+                header("location: dashboard_admin.php"); //ke halaman admin
             }else{
                 header("location: watermark.php"); //ke halaman user
             }
@@ -52,7 +52,7 @@
     <link rel="stylesheet" href="style.css">
 <body>
     <div class="center">
-        <h1 class="text-white">Login</h1>
+        <h1 class="text-white">Masuk</h1>
         <form action="login.php" method="POST">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingUsername" placeholder="Username" name="username" required>
@@ -62,7 +62,9 @@
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
                 <label for="floatingPassword">Password</label>
             </div>
-            <div class="pass">Lupa Password ?</div>
+            <div class="pass">
+                <a href="lupa_password.php">Lupa Password ?</a>
+            </div>
             <div class="col-md-3">
                 <button type="submit" name="login" class="btn btn-danger btn-lg">Login</button>
             </div>
